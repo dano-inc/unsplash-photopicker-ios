@@ -91,7 +91,7 @@ extension UnsplashPhotoPickerViewController: PhotoCellDelegate {
     }
 
     func didSelectedProfile(_ url: URL) {
-        guard let url = URL(string: (url.absoluteString + "utm_source=\(Configuration.shared.utmSource)&utm_medium=referral"))
+        guard let url = URL(string: (url.absoluteString + "?utm_source=\(Configuration.shared.utmSource)&utm_medium=referral"))
         else {
             return
         }
