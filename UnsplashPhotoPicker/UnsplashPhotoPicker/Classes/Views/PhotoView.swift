@@ -21,6 +21,9 @@ class PhotoView: UIView {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet var overlayViews: [UIView]!
 
+    weak var delegate: PhotoCellDelegate?
+    var photo: UnsplashPhoto?
+
     var showsUsername = true {
         didSet {
             userNameLabel.alpha = showsUsername ? 1 : 0
@@ -55,6 +58,7 @@ class PhotoView: UIView {
     // MARK: - Setup
 
     func configure(with photo: UnsplashPhoto, showsUsername: Bool = true) {
+        self.photo = photo
         self.showsUsername = showsUsername
         userNameLabel.text = photo.user.displayName
         imageView.backgroundColor = photo.color
@@ -100,6 +104,26 @@ class PhotoView: UIView {
         photoView.configure(with: photo)
 
         return photoView
+    }
+    
+    
+    @IBAction func imageButtonDidTap(_ sender: Any) {
+        guard let photo = photo
+        else {
+            return
+        }
+        
+        delegate?.didSelectedPhoto(photo)
+    }
+    
+    @IBAction func profileButtonDidTap(_ sender: Any) {
+        guard let photo = photo,
+              let profileURL = photo.user.profileURL
+        else {
+            return
+        }
+        
+        delegate?.didSelectedProfile(profileURL)
     }
 
 }

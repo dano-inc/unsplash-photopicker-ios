@@ -11,6 +11,7 @@ import UIKit
 protocol UnsplashPhotoPickerViewControllerDelegate: AnyObject {
     func unsplashPhotoPickerViewController(_ viewController: UnsplashPhotoPickerViewController, didSelectPhotos photos: [UnsplashPhoto])
     func unsplashPhotoPickerViewControllerDidCancel(_ viewController: UnsplashPhotoPickerViewController)
+    func unsplashPhotoPickerViewController(_ viewController: UnsplashPhotoPickerViewController, didSelectProfile url: URL)
 }
 
 class UnsplashPhotoPickerViewController: UIViewController {

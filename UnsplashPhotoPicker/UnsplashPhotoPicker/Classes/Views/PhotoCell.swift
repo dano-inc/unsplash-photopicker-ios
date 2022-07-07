@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol PhotoCellDelegate: AnyObject {
+    func didSelectedPhoto(_ photo: UnsplashPhoto)
+    func didSelectedProfile(_ url: URL?)
+}
+
 class PhotoCell: UICollectionViewCell {
 
     // MARK: - Properties
@@ -31,6 +36,8 @@ class PhotoCell: UICollectionViewCell {
         }
     }
 
+    weak var delegate: PhotoCellDelegate?
+
     // MARK: - Lifetime
 
     override init(frame: CGRect) {
@@ -47,6 +54,7 @@ class PhotoCell: UICollectionViewCell {
         setupPhotoView()
         setupCheckmarkView()
         updateSelectedState()
+        photoView.delegate = self
     }
 
     override func prepareForReuse() {
@@ -88,5 +96,15 @@ class PhotoCell: UICollectionViewCell {
             contentView.rightAnchor.constraint(equalToSystemSpacingAfter: checkmarkView.rightAnchor, multiplier: CGFloat(1)),
             contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: checkmarkView.bottomAnchor, multiplier: CGFloat(1))
             ])
+    }
+}
+
+extension PhotoCell: PhotoCellDelegate {
+    func didSelectedPhoto(_ photo: UnsplashPhoto) {
+        delegate?.didSelectedPhoto(photo)
+    }
+
+    func didSelectedProfile(_ url: URL?) {
+        delegate?.didSelectedProfile(url)
     }
 }
