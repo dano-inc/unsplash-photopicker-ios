@@ -95,6 +95,5 @@ extension UnsplashPhotoPicker: UnsplashPhotoPickerViewControllerDelegate {
 
     func unsplashPhotoPickerViewController(_ viewController: UnsplashPhotoPickerViewController, didSelectProfile url: URL) {
         photoPickerDelegate?.unsplashPhotoPicker(self, didSelectProfile: url)
-        dismiss(animated: true, completion: nil)
     }
 }

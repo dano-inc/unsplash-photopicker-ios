@@ -20,7 +20,9 @@ class PhotoView: UIView {
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet var overlayViews: [UIView]!
-
+    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
+    
     weak var delegate: PhotoCellDelegate?
     var photo: UnsplashPhoto?
 
@@ -39,6 +41,9 @@ class PhotoView: UIView {
             GradientView.Color(color: .clear, location: 0),
             GradientView.Color(color: UIColor(white: 0, alpha: 0.5), location: 1)
         ])
+        
+        imageButton.setTitle("", for: .normal)
+        profileButton.setTitle("", for: .normal)
     }
 
     func prepareForReuse() {
