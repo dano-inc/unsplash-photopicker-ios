@@ -75,7 +75,9 @@
             </constraints>
             <connections>
                 <outlet property="gradientView" destination="6Kv-0r-W2S" id="ZLq-Zs-Nbl"/>
+                <outlet property="imageButton" destination="tgd-2M-WHO" id="IR0-H6-KOr"/>
                 <outlet property="imageView" destination="KxT-2S-csa" id="AjO-gG-2IN"/>
+                <outlet property="profileButton" destination="zTt-RI-Hcu" id="CbJ-PY-r5r"/>
                 <outlet property="userNameLabel" destination="4jb-5S-M9a" id="Stu-4R-WaX"/>
                 <outletCollection property="overlayViews" destination="6Kv-0r-W2S" collectionClass="NSMutableArray" id="J65-is-Pw3"/>
             </connections>
