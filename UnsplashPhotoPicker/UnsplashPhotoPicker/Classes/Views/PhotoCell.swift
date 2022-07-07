@@ -10,7 +10,7 @@ import UIKit
 
 protocol PhotoCellDelegate: AnyObject {
     func didSelectedPhoto(_ photo: UnsplashPhoto)
-    func didSelectedProfile(_ url: URL?)
+    func didSelectedProfile(_ url: URL)
 }
 
 class PhotoCell: UICollectionViewCell {
