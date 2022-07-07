@@ -55,6 +55,8 @@ public struct UnsplashPhotoPickerConfiguration {
 
     /// The default content safety filter.
     public static let defaultContentFilterLevel: ContentFilterLevel = .low
+    
+    public var utmSource: String = ""
 
     /// The Unsplash API url.
     let apiURL = "https://api.unsplash.com/"
@@ -78,7 +80,8 @@ public struct UnsplashPhotoPickerConfiguration {
                 allowsMultipleSelection: Bool = false,
                 memoryCapacity: Int = defaultMemoryCapacity,
                 diskCapacity: Int = defaultDiskCapacity,
-                contentFilterLevel: ContentFilterLevel = defaultContentFilterLevel
+                contentFilterLevel: ContentFilterLevel = defaultContentFilterLevel,
+                utmSource: String
     ) {
         self.accessKey = accessKey
         self.secretKey = secretKey
@@ -87,6 +90,7 @@ public struct UnsplashPhotoPickerConfiguration {
         self.memoryCapacity = memoryCapacity
         self.diskCapacity = diskCapacity
         self.contentFilterLevel = contentFilterLevel
+        self.utmSource = utmSource
     }
 
     init() {}
