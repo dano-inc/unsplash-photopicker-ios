@@ -104,7 +104,7 @@ extension PhotoCell: PhotoCellDelegate {
         delegate?.didSelectedPhoto(photo)
     }
 
-    func didSelectedProfile(_ url: URL?) {
+    func didSelectedProfile(_ url: URL) {
         delegate?.didSelectedProfile(url)
     }
 }
